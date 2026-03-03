@@ -43042,8 +43042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_AssetsPPU: 16
-  m_RefResolutionX: 1920
-  m_RefResolutionY: 1080
+  m_RefResolutionX: 640
+  m_RefResolutionY: 320
   m_CropFrame: 0
   m_GridSnapping: 1
   m_FilterMode: 0
@@ -43087,7 +43087,7 @@ Camera:
   far clip plane: 1000
   field of view: 66.6
   orthographic: 0
-  orthographic size: 27.399588
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
