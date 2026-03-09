@@ -30,6 +30,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public bool ApplyDamage(float amount)
     {
+
+        screenShakeManager.Instance.Shake(15f,0.25f);
         if (currentHealth <= 0f || invulnerabilityTimer > 0f)
             return false;
 
