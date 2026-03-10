@@ -69852,6 +69852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec2ab67610f91b439d747c279536dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedMultiplier: 1.5
 --- !u!212 &1792464637
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70468,7 +70469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87607734f1c5ce642bd8e75beb76442d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 3
   invulnerabilityDuration: 1
   blinkInterval: 0.1
 --- !u!1 &2066187981
@@ -70589,7 +70590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11327085c16fc814ebf1fde5393c3019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 3
 --- !u!61 &2066187986
 BoxCollider2D:
   m_ObjectHideFlags: 0
