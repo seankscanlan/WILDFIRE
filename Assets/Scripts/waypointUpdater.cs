@@ -6,7 +6,7 @@ public class waypointUpdater : MonoBehaviour
 public GameObject wayPoint;
 
 //This is how often your waypoint's position will update to the player's position
-private float timer = 0.5f;
+private float timer = 0.1f;
 
 void Update ()
 {

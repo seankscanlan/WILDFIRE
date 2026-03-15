@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class animalHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] float maxHealth = 1f;
+    [SerializeField] private float maxHealth = 1f;
 
-    static public float currentHealth;
+    [SerializeField] private float currentHealth;
 
     SpriteRenderer sprite;
 

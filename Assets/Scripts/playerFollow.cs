@@ -2,33 +2,29 @@ using UnityEngine;
 
 public class playerFollow : MonoBehaviour
 {
-//You may consider adding a rigid body to the zombie for accurate physics simulation
-private GameObject wayPoint;
+    private GameObject wayPoint;
+    [SerializeField] private Vector3 wayPointPos;
+    [SerializeField] private float speed = 6.0f;
 
+    // Adjust this value to set how far away the zombie stops
+    [SerializeField] private float stoppingDistance = 1.5f;
 
+    void Start()
+    {
+        wayPoint = GameObject.Find("wayPoint");
+    }
 
+    void Update()
+    {
+        wayPointPos = new Vector3(wayPoint.transform.position.x, wayPoint.transform.position.y, wayPoint.transform.position.z);
 
+        // Calculate the distance to the player
+        float distance = Vector3.Distance(transform.position, wayPointPos);
 
-[SerializeField] private Vector3 wayPointPos;
-
-//This will be the zombie's speed. Adjust as necessary.
-[SerializeField] private float speed = 6.0f;
-
-void Start ()
-{
-     GetComponent<animalHealth>();
-     //At the start of the game, the zombies will find the gameobject called wayPoint.
-     wayPoint = GameObject.Find("wayPoint");
-}
-
-void Update ()
-{
- 
-     wayPointPos = new Vector3(wayPoint.transform.position.x, wayPoint.transform.position.y);
-     //Here, the zombie's will follow the waypoint.
-     transform.position = Vector3.MoveTowards(transform.position, wayPointPos, speed * Time.deltaTime);
-     
-
-}
-
+        // Only move if the zombie is further away than the stopping distance
+        if (distance > stoppingDistance)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, wayPointPos, speed * Time.deltaTime);
+        }
+    }
 }
