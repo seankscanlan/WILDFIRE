@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerHealth : MonoBehaviour, IDamageable
@@ -7,8 +9,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] float invulnerabilityDuration = 1f;
     [SerializeField] float blinkInterval = 0.1f;
 
+    [SerializeField] private PlayerMovement PlayerMovement;
+
+    Collider2D collider;
     float currentHealth;
     float invulnerabilityTimer;
+    GameObject Player;
 
     SpriteRenderer sprite;
     float blinkTimer;
@@ -18,6 +24,14 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         currentHealth = maxHealth;
         sprite = GetComponent<SpriteRenderer>();
+        collider = GetComponent<Collider2D>();
+        Player = GetComponent<GameObject>();
+        PlayerMovement = GetComponent<PlayerMovement>();
+    }
+
+    void Start()
+    {
+        collider.enabled = true;
     }
 
     void Update()
@@ -72,6 +86,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     void Die()
     {
-        gameObject.SetActive(false);
+        sprite.enabled = false;
+        collider.enabled = false;
+        PlayerMovement.enabled = false;
+        
+        StartCoroutine(Death());
+        //SceneManager.LoadScene("MainMenu").Delay(3f);
+    }
+
+    IEnumerator Death()
+    {
+        
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("MainMenu");
     }
 }

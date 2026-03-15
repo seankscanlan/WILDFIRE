@@ -53,5 +53,9 @@ public void PlayMusic(AudioClip clip)
         musicSource.Play();
     }
 }
+    public void PlayOnBoot()
+    {
+        musicSource.Play();
+    }
 
 }

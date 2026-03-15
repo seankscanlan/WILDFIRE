@@ -25,7 +25,7 @@ public class playerJump : MonoBehaviour
 
     void Update()
     {
-        while (Input.GetButtonDown("Jump") && !isJumping)
+        if (Input.GetButtonDown("Jump") && !isJumping)
         {
             StartCoroutine(Jump());
         }
@@ -52,9 +52,9 @@ public class playerJump : MonoBehaviour
         Physics2D.IgnoreLayerCollision(playerLayer, obstacleLayer, false);
 
         // Check if there is an obstacle when landing
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, landCheckRadius, 1 << obstacleLayer);
+        Collider2D land = Physics2D.OverlapCircle(transform.position, landCheckRadius, 1 << obstacleLayer);
 
-        if (hit != null)
+        if (land != null)
         {
             gameObject.SetActive(false);
         }
