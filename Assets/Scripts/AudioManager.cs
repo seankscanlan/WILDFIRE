@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip backgroundMusic;
     public AudioClip deathSFX;
     public AudioClip collectibleSFX;
+    public AudioClip jumpSFX;
     
     void Awake()
     {

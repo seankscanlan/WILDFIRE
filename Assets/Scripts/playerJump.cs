@@ -34,6 +34,7 @@ public class playerJump : MonoBehaviour
     IEnumerator Jump()
     {
         isJumping = true;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.jumpSFX);
 
         Physics2D.IgnoreLayerCollision(playerLayer, obstacleLayer, true);
 
