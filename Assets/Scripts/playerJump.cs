@@ -3,6 +3,9 @@ using System.Collections;
 
 public class playerJump : MonoBehaviour
 {
+
+    [SerializeField] private PlayerHealth playerHealth;
+
     [Header("Jump")]
     [SerializeField] private float jumpDuration = 0.6f;
     [SerializeField] private float jumpSize = 1.4f;
@@ -11,6 +14,7 @@ public class playerJump : MonoBehaviour
     [SerializeField] private string obstacleLayerName = "Water";
     [SerializeField] private float landCheckRadius = 0.05f;
 
+
     private bool isJumping = false;
     private int playerLayer;
     private int obstacleLayer;
@@ -18,6 +22,7 @@ public class playerJump : MonoBehaviour
 
     void Start()
     {
+        PlayerHealth playerHealth = GetComponent<PlayerHealth>();
         playerLayer = gameObject.layer;
         obstacleLayer = LayerMask.NameToLayer(obstacleLayerName);
         originalScale = transform.localScale;
@@ -57,7 +62,8 @@ public class playerJump : MonoBehaviour
 
         if (land != null)
         {
-            gameObject.SetActive(false);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.splashSFX);
+            playerHealth.Die();
         }
 
         isJumping = false;

@@ -5,14 +5,14 @@ using System.Collections;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] float maxHealth = 100f;
+    [SerializeField] float maxHealth = 3f;
     [SerializeField] float invulnerabilityDuration = 1f;
     [SerializeField] float blinkInterval = 0.1f;
 
     [SerializeField] private PlayerMovement PlayerMovement;
 
     Collider2D collider;
-    float currentHealth;
+    public float currentHealth;
     float invulnerabilityTimer;
     GameObject Player;
 
@@ -84,12 +84,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             Mathf.FloorToInt(blinkTimer / blinkInterval) % 2 == 0;
     }
 
-    void Die()
+    public void Die()
     {
         sprite.enabled = false;
         collider.enabled = false;
         PlayerMovement.enabled = false;
-        
+
         StartCoroutine(Death());
         //SceneManager.LoadScene("MainMenu").Delay(3f);
     }
@@ -97,7 +97,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     IEnumerator Death()
     {
         
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.3f);
         SceneManager.LoadScene("MainMenu");
     }
 }

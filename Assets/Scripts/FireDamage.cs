@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FireDamage : MonoBehaviour
 {
-    [SerializeField] float damage = 100f;
+    [SerializeField] float damage = 3f;
 
     void OnTriggerStay2D(Collider2D other)
     {
