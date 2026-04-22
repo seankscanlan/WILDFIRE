@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
+    public ParticleSystem SmokeFX;
 
     private void Start()
     {
@@ -24,12 +25,14 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         animator.SetBool("isWalking", true);
+        SmokeFX.Play();
 
         if (context.canceled)
         {
             animator.SetBool("isWalking", false);
             animator.SetFloat("LastInputX", moveInput.x);
             animator.SetFloat("LastInputY", moveInput.y);
+            SmokeFX.Stop();
         }
         moveInput = context.ReadValue<Vector2>();
         animator.SetFloat("InputX", moveInput.x);
