@@ -3,6 +3,7 @@ using UnityEngine;
 public class playerFollow : MonoBehaviour
 {
     private GameObject wayPoint;
+    public ParticleSystem SmokeFX;
     [SerializeField] private Vector3 wayPointPos;
     [SerializeField] private float speed = 6.0f;
 
@@ -25,6 +26,7 @@ public class playerFollow : MonoBehaviour
         if (distance > stoppingDistance)
         {
             transform.position = Vector3.MoveTowards(transform.position, wayPointPos, speed * Time.deltaTime);
+            SmokeFX.Play();
         }
     }
 }
