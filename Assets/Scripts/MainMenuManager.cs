@@ -10,13 +10,32 @@ public class MainMenuManager : MonoBehaviour
 
     public void playGame()
     {
-        if (AudioManager.Instance != null)
+        if (AudioManager.Instance == null)
         {
             AudioManager.Instance.PlayOnBoot();
         }
         SceneManager.LoadScene("Level1");
     }
 
+    public void goMenu()
+    {
+        if (AudioManager.Instance == null)
+        {
+            AudioManager.Instance.PlayOnBoot();
+        }
+        SceneManager.LoadScene("MainMenu");
+    }
+
+
+
+    public void goSettings()
+    {
+        if (AudioManager.Instance == null)
+        {
+            AudioManager.Instance.PlayOnBoot();
+        }
+        SceneManager.LoadScene("Settings");
+    }
 
     public void quitGame()
     {

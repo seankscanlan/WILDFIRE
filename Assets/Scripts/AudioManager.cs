@@ -14,10 +14,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip collectibleSFX;
     public AudioClip jumpSFX;
     public AudioClip splashSFX;
-    
+
     void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
