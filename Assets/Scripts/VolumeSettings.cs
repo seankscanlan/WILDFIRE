@@ -7,7 +7,7 @@ public class VolumeSettings : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider;
 
-    private void Start()
+    /*private void Start()
     {
         if(!PlayerPrefs.HasKey("musicVolume"))
         {
@@ -19,20 +19,20 @@ public class VolumeSettings : MonoBehaviour
         {
             Load();
         }
-    }
+    } */
 
     public void changeVolume()
     {
         AudioListener.volume = volumeSlider.value;
     }
     
-    private void Load()
+    /* private void Load()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
     private void Save()
     {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
-    }
+    } */
 
 }
